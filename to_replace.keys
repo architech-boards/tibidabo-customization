@@ -1,0 +1,16 @@
+@project@;Tibidabo
+@copyright@;Architech
+@version@;1.0.0
+@release@;1.0.0
+@htmlhelp@;tibidabo-sdkdoc
+@vendor@;Architech
+@board@;Tibidabo
+@meta-layer@;meta-tibidabo
+@manifest-repository@;tibidabo-manifest
+@machine-name@;tibidabo
+@board-splashscreen@;tibidabo-splashscreen
+@user@;architech
+@user-password@;architech
+@vm-ip@;192.168.0.100
+@board-alias@;tibidabo
+@ubuntu-version@;Ubuntu 12.04 32bit
