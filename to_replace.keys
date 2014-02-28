@@ -11,6 +11,8 @@
 @board-splashscreen@;tibidabo-splashscreen
 @user@;architech
 @user-password@;architech
+@ubuntu-machine-name@;architech
 @vm-ip@;192.168.0.100
 @board-alias@;tibidabo
 @ubuntu-version@;Ubuntu 12.04 32bit
+@distro-name@;poky
