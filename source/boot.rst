@@ -115,12 +115,12 @@ On @board@, **SW1** switches 3, 4, 5, 6 (along with a set of jumpers available o
 a custom boot mode so you can simulate your configuration before blowing fuses.
 
 =========================  ===============
-SW1[5:3] = BOOT_CFG1[6:4]  Boot Device
+SW1[6:3] = BOOT_CFG1[6:4]  Boot Device
 =========================  ===============
-100                        SD regular boot
-101                        SD fast boot
-011                        Serial NOR
-010                        SATA
+1100                       SD regular boot
+1101                       SD fast boot
+0011                       Serial NOR
+0010                       SATA
 =========================  ===============
 
 For example, this is the selection of the boot from SD card (fast boot)
