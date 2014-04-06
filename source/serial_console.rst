@@ -1,11 +1,27 @@
-Serial Console
-==============
+On @board@ there is the dedicated serial console connector **CN1**
 
-On @board@ there is the dedicated serial console connector **CN1** which you can connect, by means
-of a mini-USB cable to your personal computer.
-On a Linux machine, the console is seen as a ttyUSBX device and you can access to it by means
-of an application like *minicom*. If on your system the device has been recognized as **/dev/ttyUSB0**
-then you can setup your the port with these parameters:
+.. image:: _static/board-cn1.jpg
+    :align: center
+
+.. note::
+
+ Every operating system has its own killer application to give you a serial terminal interface. In this guide, we are assuming your **host** operating system is **Ubuntu**.
+
+On a Linux (Ubuntu) host machine, the console is seen as a ttyUSBX device and you can access to it by means
+of an application like *minicom*.
+
+.. host::
+
+ sudo minicom -ws
+
+If minicom is not installed, you can install it with:
+
+.. host::
+
+ sudo apt-get install minicom
+
+If on your system the device has been recognized as **@console-device@**
+then you can setup your port with these parameters:
 
 ::
 
@@ -27,4 +43,7 @@ then you can setup your the port with these parameters:
             | Exit from Minicom        |
             +--------------------------+
 
-otherwise just replace */dev/ttyUSB0* with the proper device
+otherwise, just replace *@console-device@* with the proper device.
+
+Once you are done configuring the serial port, you are back to *minicom* main menu and you can select *exit*.
+

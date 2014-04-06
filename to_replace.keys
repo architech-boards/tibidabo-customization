@@ -13,6 +13,17 @@
 @user-password@;architech
 @ubuntu-machine-name@;architech
 @vm-ip@;192.168.0.100
+@target-ip@;192.168.0.10
 @board-alias@;tibidabo
 @ubuntu-version@;Ubuntu 12.04 32bit
 @distro-name@;poky
+@quickstart-image@;core-image-minimal-dev
+@console-device@;/dev/ttyUSB0
+@target-default-eth-if@;pt0
+@eabi@;gnueabi
+@u-boot-start-addr@;
+@u-boot-end-addr@;
+@unboxing@;unboxing
+@quick-lan-connector@;CN16 Port P0
+@qt-libs-alias@;Tibidabo
+@arm-toolchain-directory@;cortexa9hf-vfp-neon-poky-linux-gnueabi
