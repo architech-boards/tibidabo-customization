@@ -16,11 +16,25 @@ File *.sdcard* can be written out "as is" on the final medium with, for example,
 
 .. host::
 
- sudo dd if=/path/to/image.sdcard of=/your/sd/card/device
+ | sudo dd if=/path/to/image.sdcard of=/path/to/your/final/media/device
 
 .. warning::
 
  Be very careful when you use *dd* to write to a device to pick up the right device, otherwise you can mess up another disk you have on your machine, destroying its content forever!
+
+.. warning::
+ 
+ The content of the media will be lost forever!
+
+.. important::
+
+ Be sure you **unmount the device** from the filesystem before using **dd** program, you sure don't want to have the operating system interfere during the write process.
+
+After *dd* completes, run:
+
+.. host::
+
+ | sync
 
 Generally, especially at the beginning, when you build an image for @board@ is more comfortable to create an SD card using
 the *.sdcard* file, because you need almost zero effort to get everything running. However, if you need to develop for a while

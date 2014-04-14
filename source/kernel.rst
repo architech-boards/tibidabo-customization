@@ -8,14 +8,14 @@ Get them from *Bitbake* build directory (if you built the kernel with it) or get
 
 .. host::
 
- /path/to/build/tmp/work/tibidabo-poky-linux-gnueabi/linux-imx/3.0.35-r38.14/git
+ | /path/to/build/tmp/work/tibidabo-poky-linux-gnueabi/linux-imx/3.0.35-r38.14/git
 
 
 If you are working with the virtual machine, you will find them under directory:
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/work/tibidabo-poky-linux-gnueabi/linux-imx/3.0.35-r38.14/git
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/work/tibidabo-poky-linux-gnueabi/linux-imx/3.0.35-r38.14/git
 
 
 We suggest you to **don't work under Bitbake build directory**, you will pay a speed penalty and you can
@@ -59,12 +59,16 @@ and to compile it:
 
 .. host::
 
- make -j <2 * number of processor's cores> uImage
+ | make -j <2 * number of processor's cores> uImage
+
+If you omit *-j* parameter, *make* will run one task after the other, if you specify it *make* will parallelize
+the tasks execution while respecting the dependencies between them.
+Generally, you will place a value for *-j* parameter corresponding to the double of your processor's cores number,
+for example, on a quad core machine you will place *-j 8*.
 
 By the end of the build process you will get **uImage** under *arch/arm/boot*.
 
 .. host::
 
- ~/Documents/linux-2.6-imx/arch/arm/boot/uImage
+ | ~/Documents/linux-2.6-imx/arch/arm/boot/uImage
 
-Enjoy!

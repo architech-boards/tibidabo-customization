@@ -13,13 +13,13 @@ ways to do that:
 
 .. host::
 
- /path/to/build/tmp/work/tibidabo-poky-linux-gnueabi/u-boot-fslc/v2013.10-r1/git
+ | /path/to/build/tmp/work/tibidabo-poky-linux-gnueabi/u-boot-fslc/v2013.10-r1/git
 
 this means that within the virtual machine you will find them under:
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/work/tibidabo-poky-linux-gnueabi/u-boot-fslc/v2013.10-r1/git
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/work/tibidabo-poky-linux-gnueabi/u-boot-fslc/v2013.10-r1/git
 
 
 We suggest you to **don't work under Bitbake build directory**, you will pay a speed penalty
@@ -58,27 +58,27 @@ with the virtual machine, the most comfortable way to get the toolchain is to as
 
 .. host::
 
- bitbake meta-toolchain
+ | bitbake meta-toolchain
 
 When *Bitbake* finishes, you will find an install script under directory:
 
 .. host::
 
- path/to/build/tmp/deploy/sdk/
+ | /path/to/build/tmp/deploy/sdk/
 
 Install the script, and you will get under the installation directory a script to source to get your
 environment almost in place for compiling. The name of the script is:
 
 .. host::
 
- environment-setup-cortexa9hf-vfp-neon-poky-linux-gnueabi
+ | environment-setup-cortexa9hf-vfp-neon-poky-linux-gnueabi
 
 Anyway, the environment is not quite right for compiling the bootloader and the Linux kernel, you need
 to unset a few variables:
 
 .. host::
 
- unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
+ | unset CFLAGS CPPFLAGS CXXFLAGS LDFLAGS
 
 Ok, now you a working environment to compile *u-boot*, just do:
 
@@ -87,9 +87,9 @@ Ok, now you a working environment to compile *u-boot*, just do:
  | cd ~/Documents/u-boot-imx
  | make mrproper
  | make tibidabo_config
- | make [-j parallelism factor] all
+ | make -j <2 * number of processor's cores> all
 
-if you omit *-j* parameter, *make* will run one task after the other, if you specify it *make* will parallelize
+If you omit *-j* parameter, *make* will run one task after the other, if you specify it *make* will parallelize
 the tasks execution while respecting the dependencies between them.
 Generally, you will place a value for *-j* parameter corresponding to the double of your processor's cores number,
 for example, on a quad core machine you will place *-j 8*.
@@ -98,16 +98,15 @@ Under the virtual machine, the toolchain is already installed under:
 
 .. host::
 
- /home/@user@/architech_sdk/architech/@board-alias@/toolchain
+ | /home/@user@/architech_sdk/architech/@board-alias@/toolchain
 
 In the very same directory there is a file, **environment-nofs**, that you can source that takes care of the
 environment for you when you want to compile the bootloader or the kernel
 
 .. host::
 
- source /home/@user@/architech_sdk/architech/@board-alias@/toolchain/environment-nofs
+ | source /home/@user@/architech_sdk/architech/@board-alias@/toolchain/environment-nofs
 
 Once the build process is complete, you will find **u-boot.imx** file in your sources directory, that's the file
 you need to boot the board.
 
-Enjoy!

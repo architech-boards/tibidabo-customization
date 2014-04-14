@@ -106,7 +106,7 @@ Once the tool is ready, power up the board, then you can download your *u-boot.i
 
 .. host::
 
- ./imx_usb path/to/your/u-boot.imx
+ | ./imx_usb /path/to/your/u-boot.imx
 
 Internal Boot
 -------------
@@ -142,7 +142,7 @@ When you boot with *serial downloader*, you just do:
 .. host::
 
  | cd /path/to/imx_usb
- | ./imx_usb path/to/your/u-boot.imx
+ | ./imx_usb /path/to/your/u-boot.imx
 
 but when you *boot from fuses* or you want to use the *internal boot* you need to understand where the processor looks for the
 bootloader binary.
@@ -163,7 +163,7 @@ open u-boot file:
 
 .. host::
 
- /path/to/u-boot/sources/**include/configs/tibidabo.h**
+ | /path/to/u-boot/sources/include/configs/tibidabo.h
 
 define macro **CONFIG_ENV_IS_IN_SPI_FLASH** by uncommenting it, comment **CONFIG_ENV_IS_IN_MMC** definition, and recompile the bootloader.
 
@@ -177,7 +177,7 @@ to the SD card device, just:
 
 .. host::
 
- sudo dd if=/path/to/image.sdcard of=/your/sd/card/device
+ | sudo dd if=/path/to/image.sdcard of=/path/to/your/sd/card/device
 
 Once the iso has been written, the SD card will have all you need to make it boot from it (it will have bootloader, kernel image, file system
 and kernel modules). Ok, but what if you want to rewrite just the bootload and not the all image? You can overwrite the bootloader on
@@ -185,7 +185,7 @@ the SD card always with *dd*:
 
 .. host::
 
- sudo dd if=/path/to/u-boot.imx of=/your/sd/card/device bs=1k seek=1
+ | sudo dd if=/path/to/u-boot.imx of=/path/to/your/sd/card/device bs=1k seek=1
 
 Bootscript
 ----------
@@ -199,14 +199,14 @@ When u-boot finds it, the script gets executed. That's it. Here is an example of
 from the SD card first partition (the partition can be FAT, EXT2, EXT3 or EXT4), and tells the kernel to use the second partition of the SD
 card as root partition:
 
-::
+.. host::
 
- setenv bootargs ${bootargs} vmalloc=400M root=/dev/mmcblk0p2 rw,rootwait consoleblank=0 video=mxcfb0:dev=hdmi,1280x720M@60,if=RGB24 video=mxcfb1:dev=lcd,CLAA-WVGA,if=RGB666 fbmem=28M,10M
- mmc dev 0
- for file_system in fat ext2; do
-     ${file_system}load mmc 0:1 ${loadaddr} /uImage && bootm ${loadaddr}
- done
- echo Impossible to boot from SD card partition 1
+ | setenv bootargs ${bootargs} vmalloc=400M root=/dev/mmcblk0p2 rw,rootwait consoleblank=0 video=mxcfb0:dev=hdmi,1280x720M@60,if=RGB24 video=mxcfb1:dev=lcd,CLAA-WVGA,if=RGB666 fbmem=28M,10M
+ | mmc dev 0
+ | for file_system in fat ext2; do
+ |     ${file_system}load mmc 0:1 ${loadaddr} /uImage && bootm ${loadaddr}
+ | done
+ | echo Impossible to boot from SD card partition 1
 
 But that is an u-boot script, not the *bootscript*, to make it suitable as a bootscript you need to give it **mkimage** as input first.
 If you are not that comfortable with *mkimage*, you can have a simplified interface offered by `create-bootscript.sh <_static/create-bootscript.sh>`_ script.
@@ -214,7 +214,7 @@ The usage is very simple, just run it like this:
 
 .. host::
 
- ./create-bootscript.sh -i path/to/your/u-boot/script -o /where/to/put/the/generated/**bootscript**
+ | ./create-bootscript.sh -i /path/to/your/u-boot/script -o /path/to/where/to/emit/the/final/bootscript
 
 where parameter *-i* stands for source file to take as input and *-o* stands for "binary" file to emit as output.
 

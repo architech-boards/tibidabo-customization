@@ -7,57 +7,57 @@ The switch is supported both by *u-boot* and *Linux kernel*, however, *u-boot* s
 network use just one of the two ports.
 Under Linux, instead, the default network configuration is:
 
-::
+.. board::
 
- root@tibidabo:~# ifconfig 
- eth0      Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3  
-           UP BROADCAST RUNNING MULTICAST  MTU:1492  Metric:1
-           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-           TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
-           collisions:0 txqueuelen:1000 
-           RX bytes:0 (0.0 B)  TX bytes:644 (644.0 B)
- 
- lo        Link encap:Local Loopback  
-           inet addr:127.0.0.1  Mask:255.0.0.0
-           UP LOOPBACK RUNNING  MTU:16436  Metric:1
-           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-           collisions:0 txqueuelen:0 
-           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+ | root@tibidabo:~# ifconfig 
+ | eth0      Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3  
+ |           UP BROADCAST RUNNING MULTICAST  MTU:1492  Metric:1
+ |           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+ |           TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
+ |           collisions:0 txqueuelen:1000 
+ |           RX bytes:0 (0.0 B)  TX bytes:644 (644.0 B)
+ | 
+ | lo        Link encap:Local Loopback  
+ |           inet addr:127.0.0.1  Mask:255.0.0.0
+ |           UP LOOPBACK RUNNING  MTU:16436  Metric:1
+ |           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+ |           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+ |           collisions:0 txqueuelen:0 
+ |           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 
 but if you take a closer look, you discover that there are more interfaces available:
 
-::
+.. board::
 
- root@tibidabo:~# ifconfig -a
- eth0      Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3  
-           UP BROADCAST RUNNING MULTICAST  MTU:1492  Metric:1
-           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-           TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
-           collisions:0 txqueuelen:1000 
-           RX bytes:0 (0.0 B)  TX bytes:644 (644.0 B)
-
- lo        Link encap:Local Loopback  
-           inet addr:127.0.0.1  Mask:255.0.0.0
-           UP LOOPBACK RUNNING  MTU:16436  Metric:1
-           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-           collisions:0 txqueuelen:0 
-           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-
- pt0       Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3  
-           BROADCAST MULTICAST  MTU:1492  Metric:1
-           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-           collisions:0 txqueuelen:0 
-           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-
- pt1       Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3  
-           BROADCAST MULTICAST  MTU:1492  Metric:1
-           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-           collisions:0 txqueuelen:0 
-           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+ | root@tibidabo:~# ifconfig -a
+ | eth0      Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3  
+ |           UP BROADCAST RUNNING MULTICAST  MTU:1492  Metric:1
+ |           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+ |           TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
+ |           collisions:0 txqueuelen:1000 
+ |           RX bytes:0 (0.0 B)  TX bytes:644 (644.0 B)
+ | 
+ | lo        Link encap:Local Loopback  
+ |           inet addr:127.0.0.1  Mask:255.0.0.0
+ |           UP LOOPBACK RUNNING  MTU:16436  Metric:1
+ |           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+ |           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+ |           collisions:0 txqueuelen:0 
+ |           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+ | 
+ | pt0       Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3  
+ |           BROADCAST MULTICAST  MTU:1492  Metric:1
+ |           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+ |           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+ |           collisions:0 txqueuelen:0 
+ |           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+ | 
+ | pt1       Link encap:Ethernet  HWaddr 1E:ED:19:27:1A:B3  
+ |           BROADCAST MULTICAST  MTU:1492  Metric:1
+ |           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+ |           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+ |           collisions:0 txqueuelen:0 
+ |           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
 
 where **pt0** is the network inteface corresponding to connector **P0**, while **pt1** is the
 network interface corresponding to connector **P1**.
@@ -68,7 +68,7 @@ You can change the MAC address of a specific network interface by means of this 
 
 .. board::
 
- ifconfig <port> hw ether <new mac address>
+ | ifconfig <port> hw ether <new mac address>
 
 
 substitute *<port>* with *pt0* or *pt1*, and *<new mac address>* with the MAC address you decided to assign.
@@ -77,12 +77,12 @@ If you want that configuration to be brought up at boot you can add a few line i
 example, if you want *pt0* to have a fixed ip address (say 192.168.0.10) and MAC address of value 1e:ed:19:27:1a:b6
 you could add the following lines:
 
-::
+.. board::
 
- auto pt0                                       
- iface pt0 inet static                          
-     address 192.168.0.10
-     netmask 255.255.255.0
-     hwaddress ether 1e:ed:19:27:1a:b6      
+ | auto pt0                                       
+ | iface pt0 inet static                          
+ |     address 192.168.0.10
+ |     netmask 255.255.255.0
+ |     hwaddress ether 1e:ed:19:27:1a:b6      
                                
 You can, of course, define the default configuration for *pt1* as well.
