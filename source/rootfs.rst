@@ -18,6 +18,12 @@ File *.sdcard* can be written out "as is" on the final medium with, for example,
 
  | sudo dd if=/path/to/image.sdcard of=/path/to/your/final/media/device
 
+Where, the path to the image *.sdcard* file inside the SDK virtual machine is:
+
+.. host::
+
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/@machine-name@
+
 .. warning::
 
  Be very careful when you use *dd* to write to a device to pick up the right device, otherwise you can mess up another disk you have on your machine, destroying its content forever!
