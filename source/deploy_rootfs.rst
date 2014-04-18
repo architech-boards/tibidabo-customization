@@ -4,7 +4,7 @@ To deploy the root file system, you are going to need a micro SD card.
 
 .. host::
 
- | sudo dd if=~/architech_sdk/architech/@board-alias@/yocto/tmp/deploy/images/@quickstart-image@-@machine-name@.sdcard of=/path/to/your/sd/card/device
+ | sudo dd if=~/architech_sdk/architech/@board-alias@/yocto/tmp/deploy/images/@machine-name@/@quickstart-image@-@machine-name@.sdcard of=/path/to/your/sd/card/device
 
 .. warning::
 

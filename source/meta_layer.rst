@@ -12,6 +12,7 @@ You can get it with *git*:
 
  | git clone -b dora https://github.com/architech-boards/meta-tibidabo.git
 
+The machine name for @board@ is **@machine-name@**.
 
 The strictly BSP related recipes are located under:
 

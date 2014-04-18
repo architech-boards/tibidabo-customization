@@ -22,7 +22,7 @@ Where, the path to the image *.sdcard* file inside the SDK virtual machine is:
 
 .. host::
 
- | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/@machine-name@
+ | /home/@user@/architech_sdk/architech/@board-alias@/yocto/build/tmp/deploy/images/@machine-name@
 
 .. warning::
 
