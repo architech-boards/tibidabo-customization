@@ -1,3 +1,5 @@
+.. _linux-kernel:
+
 Linux Kernel
 ============
 

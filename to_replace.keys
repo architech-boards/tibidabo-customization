@@ -30,3 +30,4 @@
 @quickstart-image-extension@;tar.bz2
 @quickstart-image-tar-options@;-xjf
 @meta-layer-remote@;https://github.com/architech-boards
+@add-ons@;add-ons
