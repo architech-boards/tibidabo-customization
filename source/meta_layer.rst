@@ -2,7 +2,7 @@ Meta Layer
 ==========
 
 A Yocto/OpenEmbedded meta-layer is a directory that contains recipes, configuration files, patches, etc., all needed by
-*Bitbake* to properly "see" and build a BSP, a distrubution, a (set of) package(s), whatever.
+*Bitbake* to properly "see" and build a BSP, a distribution, a (set of) package(s), whatever.
 **@meta-layer@** is a meta-layer which defines the customizations to make to Freescale's i.MX6 BSP and Yocto/OpenEmbedded
 in order to get a working system, tailor made of @board@.
 
