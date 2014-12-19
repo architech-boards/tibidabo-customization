@@ -37,10 +37,22 @@ and by properly patching the sources:
 
 .. host::
 
- | cd ~/Documents
  | git clone -b dora https://github.com/architech-boards/meta-tibidabo.git
- | patch -p1 -d linux-2.6-imx/ < meta-tibidabo/recipes-kernel/linux/linux-imx-3.0.35/0001-tibidabo.patch
- | cp meta-tibidabo/recipes-kernel/linux/linux-imx-3.0.35/defconfig linux-2.6-imx/.config
+ | git clone -b dora git://git.yoctoproject.org/meta-fsl-arm
+ | cd meta-fsl-arm
+ | git checkout fb1681666fac9c096314cd01242be4613b7ff140
+ | cd ~/Documents/linux-2.6-imx
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/drm-vivante-Add-00-sufix-in-returned-bus-Id.patc
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/epdc-Rename-mxcfb_epdc_kernel.h-to-mxc_epdc.h.patch
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/0001-perf-tools-Fix-getrusage-related-build-failure-on-gl.patch
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/0002-ARM-7668-1-fix-memset-related-crashes-caused-by-rece.patch
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/0003-ARM-7670-1-fix-the-memset-fix.patch
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/0004-ENGR00271136-Fix-build-break-when-CONFIG_CLK_DEBUG-i.patch
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/0005-ENGR00271359-Add-Multi-touch-support.patch
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/0006-Add-support-for-DVI-monitors.patch
+ | patch -p1 < ../meta-fsl-arm/recipes-kernel/linux/linux-imx-3.0.35/0007-ARM-mach-mx6-board-mx6q_sabresd-Register-SDHC3-first.patch
+ | patch -p1 < ../meta-tibidabo/recipes-kernel/linux/linux-imx-3.0.35/0001-tibidabo.patch
+ | cp ../meta-tibidabo/recipes-kernel/linux/linux-imx-3.0.35/defconfig .config
 
 Now that you have the sources, you can start browsing the code from the following files:
 
